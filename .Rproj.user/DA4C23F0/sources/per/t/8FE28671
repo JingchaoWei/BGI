@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1542410129530.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1779800424",
+    "id" : "8FE28671",
+    "lastKnownWriteTime" : 1542419041,
+    "last_content_update" : 1542419041802,
+    "path" : "~/GitHub/BGI/BGI.R",
+    "project_path" : "BGI.R",
+    "properties" : {
+        "cursorPosition" : "10,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
