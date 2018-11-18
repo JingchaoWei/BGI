@@ -35,14 +35,12 @@ library(enrichplot)
 
 #GO analysis
 #GO classification/GoupGO 分析
-entr_up <- as.vector(upgenes$ï..Gene.ID)
 
 ggo <- groupGO(gene = entr_up,OrgDb = org.Hs.eg.db,ont = 'BP',level = 3,keyType = 'ENTREZID',readable = T)
 head(ggo)
 barplot(ggo,drop=T,x = "GeneRatio",showCategory=20,title='GO_GeneRatio')
 
 #GO over-representation test/enrichGO 分析
-entr_bg <- as.vector(background_all$ï..Gene.ID)
 head(entr_bg)
 
 ego <- enrichGO(gene = entr_up,OrgDb = org.Hs.eg.db,keyType = 'ENTREZID',ont = 'BP',
