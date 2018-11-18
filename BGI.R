@@ -7,6 +7,6 @@ attach(background_DEG)
 upgenes <- background_DEG[FK.FPKM>=1&HN.FPKM>=1&log2.HN.FK.>=2&Qvalue.FK.vs.HN.<0.01,]
 downgenes <- background_DEG[FK.FPKM>=1&HN.FPKM>=1&log2.HN.FK.<=-2&Qvalue.FK.vs.HN.<0.01,]
 detach(background_DEG)
-save(background,upgenes,downgenes,background_all,file = 'Data.Rdata')
+save(background_DEG,upgenes,downgenes,background_all,file = 'Data.Rdata')
 
 
