@@ -46,7 +46,7 @@ MySplit <- function(i){
 }
 sig_genes <- vector()
 for (i in 1:nrow(sig_genes_tmp)) {
-  MySplit(i)
+  tmp <- MySplit(i)
   sig_genes <- c(sig_genes,tmp)
 }
 sig_genes <- unique(sig_genes)
