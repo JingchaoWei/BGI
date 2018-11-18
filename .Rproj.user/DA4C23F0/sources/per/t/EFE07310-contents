@@ -75,7 +75,7 @@ pdf(file = 'Kegg_GSEA.pdf',width = 10,onefile = T)
 dotplot(kk2,showCategory=20)
 for (i in 1:20) {
   tmp <- gseaplot(kk2, geneSetID = kk2@result$ID[i],
-                  title=paste(kk2@result$ID,kk2@result$Description[i],sep = '_'))
+                  title=paste(kk2@result$ID[i],kk2@result$Description[i],sep = '_'))
   print(tmp)
 }
 dev.off()

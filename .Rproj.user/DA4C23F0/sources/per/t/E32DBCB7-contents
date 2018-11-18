@@ -122,7 +122,7 @@ pdf(file = 'GO_GSEA.pdf',width = 10,onefile = T)
 dotplot(ego3,showCategory = 20)
 for (i in 1:20) {
   tmp <- gseaplot(ego3, geneSetID = ego3@result$ID[i],
-                  title=paste(ego3@result$ID,ego3@result$Description[i],sep = '_'))
+                  title=paste(ego3@result$ID[i],ego3@result$Description[i],sep = '_'))
   print(tmp)
 }
 dev.off()
