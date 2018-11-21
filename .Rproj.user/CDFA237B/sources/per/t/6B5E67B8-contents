@@ -11,7 +11,7 @@ background_all <- background_all[-index,]#filter out BGI_novel genes.
 index <- grep('BGI',background_DEG$ï..Gene.ID)
 background_DEG <- background_DEG[-index,]
 
-entr_up <- as.vector(upgenes$ï..Gene.ID)
+entr_up <- as.vector(upgenes$ï..Gene.ID)#这些上调的基因可以导入clueGO直接进行分析了。
 entr_bg <- as.vector(background_all$ï..Gene.ID)
 
 library(clusterProfiler)
