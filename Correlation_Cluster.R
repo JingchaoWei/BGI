@@ -2,9 +2,9 @@ data <- read.csv('all.csv')
 data <- data[,2:11]
 
 library(Hmisc)
+library(pheatmap)
 res <- rcorr(as.matrix(data))
 pdf('Correlation_plot.pdf',onefile = T)
-library(pheatmap)
 pheatmap(res$r,
          col = colorRampPalette(c("#3399FF","white","red"))(100),
          cluster_rows = T,cluster_cols=T,
@@ -27,4 +27,27 @@ corrplot(res$r,col = colorRampPalette(c("blue","white","red"))(100),
 
 symnum(res$r)
 
+dev.off()
+
+
+
+#还可以通过层次聚类来查看样本之间的关系：
+names_cluster <- data.frame(sample=colnames(data),group=c(rep('FK',5),rep('HN',5)))
+#如果group是factor,要转化成character
+names_cluster$group <- as.character(names_cluster$group)
+#合并出来新名称，这样能同时看到样本名字和分组信息
+names_cluster$new_names <- paste(names_cluster$sample,names_cluster$group,sep = "_")
+#查看对应关系是否正确，应该是正确的。
+names_cluster
+colnames(data)
+#对矩阵的名字进行替换
+colnames(data) <- names_cluster$new_names
+colnames(data)
+#然后进行聚类
+distance <- dist(t(data),method="euclidean")
+clusters <- hclust(distance,method = "complete")
+pdf("sample_cluster.pdf")
+par(mar = c(5, 5, 5, 3))#图的下，左，上，右到页面的边距
+par(mgp = c(1.5, 0.5, 0))
+plot(clusters)
 dev.off()
