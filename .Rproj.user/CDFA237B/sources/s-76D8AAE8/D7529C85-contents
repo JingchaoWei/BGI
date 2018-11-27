@@ -20,8 +20,6 @@ library(enrichplot)
 library(pathview)
 library(stringr)
 library(dplyr)
-library(DOSE)
-library(ggplot2)
 
 #kegg over-representation test
 kk <- enrichKEGG(gene         = entr_up,
@@ -53,11 +51,7 @@ for (i in 1:nrow(sig_genes_tmp)) {
 }
 sig_genes <- unique(sig_genes)
 cat(sig_genes,sep = '\n')#按行打印出来，可以直接复制到stringDB里面做蛋白相互作用
-#比较基因集的生物学功能
-compare <- compareCluster(geneClusters = kk@geneSets[1:5],fun = 'enrichKEGG')
-dotplot(compare)
-#clusterProfiler出的图，我们可以用ggplot2随意改，比如改颜色
-dotplot(compare)+ scale_color_continuous(low='purple', high='green')
+
 
 
 #KEGG Gene Set Enrichment Analysis
@@ -103,8 +97,7 @@ mkk <- enrichMKEGG(gene = entr_up,
                    organism = 'hsa',pvalueCutoff = 0.05,
                    universe = entr_bg,minGSSize = 10,maxGSSize = 500,qvalueCutoff = 0.05)
 dotplot(mkk,showCategory=20)
-
-#KEGG Module Gene Set Enrichment Analysis(GSEA)
+#KEGG Module Gene Set Enrichment Analysis
 geneList <- background_all$log2.HN.FK.
 names(geneList) <- as.character(background_all$ï..Gene.ID)
 geneList <- sort(geneList,decreasing = T)
