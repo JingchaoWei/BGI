@@ -5,6 +5,9 @@ load('Data.Rdata')
 index <- grep('BGI',upgenes$ï..Gene.ID)#Filter our BGI novel genes.
 upgenes <- upgenes[-index,] 
 
+index <- grep('BGI',downgenes$ï..Gene.ID)
+downgenes <- downgenes[-index,]
+
 index <- grep('BGI',background_all$ï..Gene.ID)
 background_all <- background_all[-index,]#filter out BGI_novel genes.
 
@@ -12,6 +15,7 @@ index <- grep('BGI',background_DEG$ï..Gene.ID)
 background_DEG <- background_DEG[-index,]
 
 entr_up <- as.vector(upgenes$ï..Gene.ID)
+entr_down <- as.vector(downgenes$ï..Gene.ID)
 entr_bg <- as.vector(background_all$ï..Gene.ID)
 
 library(clusterProfiler)
@@ -53,8 +57,11 @@ for (i in 1:nrow(sig_genes_tmp)) {
 }
 sig_genes <- unique(sig_genes)
 cat(sig_genes,sep = '\n')#按行打印出来，可以直接复制到stringDB里面做蛋白相互作用
-#比较基因集的生物学功能
-compare <- compareCluster(geneClusters = kk@geneSets[1:5],fun = 'enrichKEGG')
+
+#比较基因集的生物学功能，比如比较上下调基因
+geneset <- list(entr_up,entr_down)
+names(geneset) <- c('Up','Down')#一定要给list命名，不然后面会报错
+compare <- compareCluster(geneClusters = geneset,fun = 'enrichKEGG')
 dotplot(compare)
 #clusterProfiler出的图，我们可以用ggplot2随意改，比如改颜色
 dotplot(compare)+ scale_color_continuous(low='purple', high='green')
@@ -94,6 +101,7 @@ for (i in 1:20) {
                        species    = "hsa",
                        limit      = list(gene=max(abs(geneList)), cpd=1))
 }
+
 
 
 
