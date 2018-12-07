@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Fri Nov 16 15:16:57 2018 ------------------------------\n\n\nbackground_DEG <- read.csv('DEG.csv',stringsAsFactors = F,check.names = T)\nbackground_all <- read.csv('all.csv',stringsAsFactors = F,check.names = T)\nattach(background_DEG)\nupgenes <- background_DEG[FK.FPKM>=1&HN.FPKM>=1&log2.HN.FK.>=2&Qvalue.FK.vs.HN.<0.01,]\ndowngenes <- background_DEG[FK.FPKM>=1&HN.FPKM>=1&log2.HN.FK.<=-2&Qvalue.FK.vs.HN.<0.01,]\ndetach(background_DEG)\nsave(background_DEG,upgenes,downgenes,background_all,file = 'Data.Rdata')\n\n\n",
+    "created" : 1544158377193.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1786331923",
+    "id" : "3162F62F",
+    "lastKnownWriteTime" : 1544159459,
+    "last_content_update" : 1544159459240,
+    "path" : "H:/Github/BGI/BGI.R",
+    "project_path" : "BGI.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

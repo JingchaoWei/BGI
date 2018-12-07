@@ -1,3 +1,5 @@
+#"2018-12-06 21:20:56 PST"
+rm(list=ls())
 data <- read.csv('all.csv')
 data <- data[,2:11]
 
