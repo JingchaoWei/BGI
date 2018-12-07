@@ -1,7 +1,7 @@
 #"2018-12-06 21:20:56 PST"
 rm(list=ls())
 data <- read.csv('all.csv')
-data <- data[,2:11]
+data <- data[,2:9]
 
 library(Hmisc)
 library(pheatmap)
@@ -34,11 +34,13 @@ dev.off()
 
 
 #还可以通过层次聚类来查看样本之间的关系：
-names_cluster <- data.frame(sample=colnames(data),group=c(rep('FK',5),rep('HN',5)))
+names_cluster <- data.frame(sample=colnames(data),group=c(rep('FK',3),rep('HN',5)))
 #如果group是factor,要转化成character
 names_cluster$group <- as.character(names_cluster$group)
-#合并出来新名称，这样能同时看到样本名字和分组信息
-names_cluster$new_names <- paste(names_cluster$sample,names_cluster$group,sep = "_")
+#自己构建新名字
+newnames <- unlist(strsplit(colnames(data),split = '.',fixed = T))
+newnames = newnames[-which(newnames=='FPKM')]
+names_cluster$new_names <- newnames
 #查看对应关系是否正确，应该是正确的。
 names_cluster
 colnames(data)

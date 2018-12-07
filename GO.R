@@ -2,17 +2,26 @@
 rm(list=ls())
 load('Data.Rdata')
 
-index <- grep('BGI',upgenes$ï..Gene.ID)#Filter our BGI novel genes.
+index <- grep('BGI',upgenes$GeneID)#Filter our BGI novel genes.
 upgenes <- upgenes[-index,] 
 
-index <- grep('BGI',background_all$ï..Gene.ID)
+index <- grep('BGI',downgenes$GeneID)#Filter our BGI novel genes.
+downgenes <- downgenes[-index,] 
+
+index <- grep('BGI',background_all$GeneID)
 background_all <- background_all[-index,]#filter out BGI_novel genes.
 
-index <- grep('BGI',background_DEG$ï..Gene.ID)
+index <- grep('BGI',background_DEG$GeneID)
 background_DEG <- background_DEG[-index,]
 
-entr_up <- as.vector(upgenes$ï..Gene.ID)#这些上调的基因可以导入clueGO直接进行分析了。
-entr_bg <- as.vector(background_all$ï..Gene.ID)
+entr_up <- as.vector(upgenes$GeneID)#这些上调的基因可以导入clueGO直接进行分析了。
+entr_down <- as.vector(downgenes$GeneID)
+entr_bg <- as.vector(background_all$GeneID)
+entr_up_down <- c(entr_up,entr_down)
+
+write.table(entr_up,"upgene_for_ClueGo.txt",quote = F,sep = '\n',row.names = F,col.names = F)
+write.table(entr_down,"downgene_for_ClueGo.txt",quote = F,sep = '\n',row.names = F,col.names = F)
+write.table(entr_up_down,"allgene_for_ClueGo.txt",quote = F,sep = '\n',row.names = F,col.names = F)
 
 library(clusterProfiler)
 library(org.Hs.eg.db)
@@ -36,7 +45,8 @@ library(enrichplot)
 #GO analysis
 #GO classification/GoupGO 分析
 
-ggo <- groupGO(gene = entr_up,OrgDb = org.Hs.eg.db,ont = 'BP',level = 3,keyType = 'ENTREZID',readable = T)
+ggo <- groupGO(gene = entr_up,OrgDb = org.Hs.eg.db,ont = 'BP',
+               level = 3,keyType = 'ENTREZID',readable = T)
 head(ggo)
 barplot(ggo,drop=T,x = "GeneRatio",showCategory=20,title='GO_GeneRatio')
 
