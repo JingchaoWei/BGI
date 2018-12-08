@@ -45,25 +45,29 @@ library(enrichplot)
 #GO analysis
 #GO classification/GoupGO 分析
 
-ggo <- groupGO(gene = entr_up,OrgDb = org.Hs.eg.db,ont = 'BP',
+ggo <- groupGO(gene = entr_up_down,OrgDb = org.Hs.eg.db,ont = 'CC',
                level = 3,keyType = 'ENTREZID',readable = T)
 head(ggo)
-barplot(ggo,drop=T,x = "GeneRatio",showCategory=20,title='GO_GeneRatio')
+barplot(ggo,drop=T,x = "GeneRatio",showCategory=20,title='GO_Group_GeneRatio')
 
-#GO over-representation test/enrichGO 分析
+#GO over-representation test/enrichGO 分析/自行修改CC,MF,BP
 head(entr_bg)
 
-ego <- enrichGO(gene = entr_up,OrgDb = org.Hs.eg.db,keyType = 'ENTREZID',ont = 'BP',
+ego <- enrichGO(gene = entr_up_down,OrgDb = org.Hs.eg.db,keyType = 'ENTREZID',
+                ont = 'BP',
                 pAdjustMethod = 'BH',pvalueCutoff = 0.01,qvalueCutoff = 0.01,
                 readable = T,universe = entr_bg)#background genes: use all gene. Don't use DEGs only.
 head(ego)
+nrow(ego)
 
 #plot
+pdf('enrichGO.pdf',width = 14,onefile = T)
 barplot(ego,drop=T,showCategory = 20,title=paste0("enrichGo_",'BP'))
 dotplot(ego,showCategory = 20,title=paste0("enrichGo_",'BP'))
 emapplot(ego, showCategory=20,color = "p.adjust",layout = 'kk',title=paste0("enrichGo_",'BP'))
 cnetplot(ego, showCategory = 20,title=paste0("enrichGo_",'BP'))
 goplot(ego,showCategory =20)
+dev.off()
 
 ego2 <- gofilter(ego,level = 3)#remove specific GO terms or GO level (in case of redundance)
 barplot(ego2,drop=T,showCategory = 20,title=paste0("enrichGo_",'BP'))
@@ -71,7 +75,10 @@ dotplot(ego2,showCategory = 20,title=paste0("enrichGo_",'BP'))
 emapplot(ego2, showCategory=20,color = "p.adjust",layout = 'kk',title=paste0("enrichGo_",'BP'))
 cnetplot(ego2, showCategory = 20,title=paste0("enrichGo_",'BP'))
 #get genes in significant pathways
+library(magrittr)
+library(stringr)
 sig_genes_tmp <- ego@result
+View(sig_genes_tmp)
 sig_genes_tmp <- sig_genes_tmp[sig_genes_tmp$p.adjust<0.05,]
 MySplit <- function(i){
   tmp <- sig_genes_tmp[i,'geneID'] %>% str_split(pattern = '/') %>% unlist(recursive = T)
@@ -84,6 +91,7 @@ for (i in 1:nrow(sig_genes_tmp)) {
 }
 sig_genes <- unique(sig_genes)
 cat(sig_genes,sep = '\n')#按行打印出来，可以直接复制到stringDB里面做蛋白相互作用
+write.table(sig_genes,'sig_genes_GO.txt',quote = F,sep = '\n',col.names = F,row.names = F)
 
 
 
@@ -112,7 +120,7 @@ dev.off()
 #https://github.com/GuangchuangYu/DOSE/wiki/how-to-prepare-your-own-geneList
 
 geneList <- background_all$log2.HN.FK.
-names(geneList) <- as.character(background_all$ï..Gene.ID)
+names(geneList) <- as.character(background_all$GeneID)
 geneList <- sort(geneList,decreasing = T)
 ego3 <- gseGO(geneList     = geneList,
               OrgDb        = org.Hs.eg.db,

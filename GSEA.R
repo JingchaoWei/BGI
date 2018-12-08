@@ -1,3 +1,5 @@
+# Fri Dec 07 19:52:55 2018 ------------------------------
+rm(list=ls())
 load('Data.Rdata')
 head(upgenes)
 
@@ -6,7 +8,7 @@ head(upgenes)
 ##1.制作表达文件gct格式
 GSEA_exp_file <- background_all
 colnames(GSEA_exp_file)
-GSEA_exp_file <- GSEA_exp_file[,c(12,2:11)]
+GSEA_exp_file <- GSEA_exp_file[,c(10,2:9)]
 
 colnames(GSEA_exp_file)[1] <- 'Symbol'
 

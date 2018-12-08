@@ -2,21 +2,22 @@
 rm(list=ls())
 load('Data.Rdata')
 
-index <- grep('BGI',upgenes$ï..Gene.ID)#Filter our BGI novel genes.
+index <- grep('BGI',upgenes$GeneID)#Filter our BGI novel genes.
 upgenes <- upgenes[-index,] 
 
-index <- grep('BGI',downgenes$ï..Gene.ID)
-downgenes <- downgenes[-index,]
+index <- grep('BGI',downgenes$GeneID)#Filter our BGI novel genes.
+downgenes <- downgenes[-index,] 
 
-index <- grep('BGI',background_all$ï..Gene.ID)
+index <- grep('BGI',background_all$GeneID)
 background_all <- background_all[-index,]#filter out BGI_novel genes.
 
-index <- grep('BGI',background_DEG$ï..Gene.ID)
+index <- grep('BGI',background_DEG$GeneID)
 background_DEG <- background_DEG[-index,]
 
-entr_up <- as.vector(upgenes$ï..Gene.ID)
-entr_down <- as.vector(downgenes$ï..Gene.ID)
-entr_bg <- as.vector(background_all$ï..Gene.ID)
+entr_up <- as.vector(upgenes$GeneID)#这些上调的基因可以导入clueGO直接进行分析了。
+entr_down <- as.vector(downgenes$GeneID)
+entr_bg <- as.vector(background_all$GeneID)
+entr_up_down <- c(entr_up,entr_down)
 
 library(clusterProfiler)
 library(org.Hs.eg.db)
@@ -28,9 +29,10 @@ library(DOSE)
 library(ggplot2)
 
 #kegg over-representation test
-kk <- enrichKEGG(gene         = entr_up,
+kk <- enrichKEGG(gene         = entr_up_down,
                  organism     = 'hsa',
-                 pvalueCutoff = 0.05,minGSSize = 10, maxGSSize = 500,use_internal_data = F)
+                 pvalueCutoff = 0.01,minGSSize = 10, maxGSSize = 500,
+                 use_internal_data = F)
 head(kk)
 kk <- setReadable(kk,keytype = 'ENTREZID',OrgDb = org.Hs.eg.db)#转化ID
 #plot
@@ -45,6 +47,7 @@ name_kk <- kk@result$ID
 browseKEGG(kk, name_kk[2])
 #get genes in significant pathways
 sig_genes_tmp <- kk@result
+nrow(sig_genes_tmp)
 sig_genes_tmp <- sig_genes_tmp[sig_genes_tmp$p.adjust<0.05,]
 MySplit <- function(i){
   tmp <- sig_genes_tmp[i,'geneID'] %>% str_split(pattern = '/') %>% unlist(recursive = T)
@@ -57,6 +60,10 @@ for (i in 1:nrow(sig_genes_tmp)) {
 }
 sig_genes <- unique(sig_genes)
 cat(sig_genes,sep = '\n')#按行打印出来，可以直接复制到stringDB里面做蛋白相互作用
+write.table(sig_genes,'KEGG_sig_genes.txt',sep = '\n',quote = F,
+            col.names = F,row.names = F)
+
+
 
 #比较基因集的生物学功能，比如比较上下调基因
 geneset <- list(entr_up,entr_down)
@@ -69,7 +76,7 @@ dotplot(compare)+ scale_color_continuous(low='purple', high='green')
 
 #KEGG Gene Set Enrichment Analysis
 geneList <- background_all$log2.HN.FK.
-names(geneList) <- as.character(background_all$ï..Gene.ID)
+names(geneList) <- as.character(background_all$GeneID)
 geneList <- sort(geneList,decreasing = T)
 
 kk2 <- gseKEGG(geneList     = geneList,
