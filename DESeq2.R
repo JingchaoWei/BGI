@@ -1,3 +1,5 @@
+#标准化（均一化）的矩阵不能作为DESeq2的输入数据
+
 library(DESeq2)
 
 data <- read.csv('all.csv')
