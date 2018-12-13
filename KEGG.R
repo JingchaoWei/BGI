@@ -29,14 +29,14 @@ library(DOSE)
 library(ggplot2)
 
 #kegg over-representation test
-kk <- enrichKEGG(gene         = entr_up_down,
+kk <- enrichKEGG(gene         = entr_down,universe = entr_bg,
                  organism     = 'hsa',
-                 pvalueCutoff = 0.01,minGSSize = 10, maxGSSize = 500,
+                 pvalueCutoff = 0.05,minGSSize = 10, maxGSSize = 2000,
                  use_internal_data = F)
 head(kk)
 kk <- setReadable(kk,keytype = 'ENTREZID',OrgDb = org.Hs.eg.db)#转化ID
 #plot
-pdf('Kegg_plot.pdf',width = 14,onefile = T)
+pdf('Kegg_plot_down.pdf',width = 14,onefile = T)
 barplot(kk,drop=T,showCategory = 20,x = "GeneRatio")
 dotplot(kk,showCategory = 20)
 emapplot(kk, showCategory=20,color = "p.adjust",layout = 'kk')
@@ -57,7 +57,7 @@ nrow(result)
 sig_genes_tmp <- result[result$p.adjust<0.05,]
 #or specify pathways that you are interested in:
 result$Description
-sig_genes_tmp <- result[c(2,3,4,8,20),]
+sig_genes_tmp <- result[c(4,8，),]
 result[c(2,3,4,8,20),]
 MySplit <- function(i){
   tmp <- sig_genes_tmp[i,'geneID'] %>% str_split(pattern = '/') %>% unlist(recursive = T)
