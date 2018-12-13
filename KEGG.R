@@ -44,11 +44,21 @@ cnetplot(kk, showCategory = 20)
 dev.off()
 #browseKEGG
 name_kk <- kk@result$ID
-browseKEGG(kk, name_kk[2])
-#get genes in significant pathways
-sig_genes_tmp <- kk@result
-nrow(sig_genes_tmp)
-sig_genes_tmp <- sig_genes_tmp[sig_genes_tmp$p.adjust<0.05,]
+for (i in 1:20) {
+  browseKEGG(kk, name_kk[i])
+}
+save(kk,name_kk,file = "kegg_result.Rdata")
+
+
+#get genes in significant pathways or specific pathways
+load('kegg_result.Rdata')
+result <- kk@result
+nrow(result)
+sig_genes_tmp <- result[result$p.adjust<0.05,]
+#or specify pathways that you are interested in:
+result$Description
+sig_genes_tmp <- result[c(2,3,4,8,20),]
+result[c(2,3,4,8,20),]
 MySplit <- function(i){
   tmp <- sig_genes_tmp[i,'geneID'] %>% str_split(pattern = '/') %>% unlist(recursive = T)
   return(tmp)
@@ -59,6 +69,7 @@ for (i in 1:nrow(sig_genes_tmp)) {
   sig_genes <- c(sig_genes,tmp)
 }
 sig_genes <- unique(sig_genes)
+length(sig_genes)
 cat(sig_genes,sep = '\n')#按行打印出来，可以直接复制到stringDB里面做蛋白相互作用
 write.table(sig_genes,'KEGG_sig_genes.txt',sep = '\n',quote = F,
             col.names = F,row.names = F)

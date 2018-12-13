@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544641456209.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7183ECFA",
+    "lastKnownWriteTime" : 12948050796937287,
+    "last_content_update" : 1544641456209,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "267D8CF",
+        "caption" : "sig_genes_tmp",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=sig_genes_tmp&cache_key=267D8CF",
+        "displayedObservations" : 285,
+        "environment" : "",
+        "object" : "sig_genes_tmp",
+        "preview" : 0,
+        "totalObservations" : 285,
+        "variables" : 9
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
