@@ -27,6 +27,7 @@ library(stringr)
 library(dplyr)
 library(DOSE)
 library(ggplot2)
+library(magrittr)
 
 #kegg over-representation test
 kk <- enrichKEGG(gene         = entr_down,universe = entr_bg,
@@ -42,12 +43,48 @@ dotplot(kk,showCategory = 20)
 emapplot(kk, showCategory=20,color = "p.adjust",layout = 'kk')
 cnetplot(kk, showCategory = 20)
 dev.off()
+#or plot using ggplot2
+tmp <- kk@result[kk@result$qvalue<0.01,]#提取数据框
+#将generatio由字符转化为数值
+str(tmp)
+Char2Num <- function(i) {
+  tmp1 <- tmp[i,3]%>%str_split(pattern = '/')%>%unlist()%>%as.numeric()
+  tmp2 <- divide_by(tmp1[1],tmp1[2])
+  return(tmp2)
+}
+tmp3 <- vector()
+for (i in 1:nrow(tmp)) {
+  tmp4 <- Char2Num(i)
+  tmp3 <- c(tmp3,tmp4)
+}
+tmp3
+tmp$GeneRatio <- tmp3
+str(tmp)
+#plot
+library(ggplot2)
+ggplot(tmp,aes(x=GeneRatio,y=Description))+
+  geom_point(aes(size=Count,color=qvalue))+
+  scale_colour_gradient(low="blue",high="red")+ 
+  scale_x_continuous()+
+  labs( color=expression(qvalue), x="Gene Ratio",
+        y="Pathway name", title="Pathway enrichment")+ 
+  theme_bw()+
+  theme(axis.text.y = element_text(size = rel(1)), 
+                    axis.title.x = element_text(size=rel(1)), 
+                    axis.title.y = element_blank() ) 
+
+
+
 #browseKEGG
 name_kk <- kk@result$ID
 for (i in 1:20) {
   browseKEGG(kk, name_kk[i])
 }
 save(kk,name_kk,file = "kegg_result.Rdata")
+
+
+
+
 
 
 #get genes in significant pathways or specific pathways
@@ -57,7 +94,7 @@ nrow(result)
 sig_genes_tmp <- result[result$p.adjust<0.05,]
 #or specify pathways that you are interested in:
 result$Description
-sig_genes_tmp <- result[c(4,8，),]
+sig_genes_tmp <- result[c(4,8),]
 result[c(2,3,4,8,20),]
 MySplit <- function(i){
   tmp <- sig_genes_tmp[i,'geneID'] %>% str_split(pattern = '/') %>% unlist(recursive = T)
