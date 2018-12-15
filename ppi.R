@@ -1,3 +1,3 @@
-data <- read.csv('interested pathways_genes_DQC.csv')
-write.table(data$Other.Gene.ID,'gene_DQC.txt',quote = F,sep = '\t',
-            row.names = F,col.names = F)
+upgene_in_FK <- read.csv('up_genes_in_FK.csv')
+write.table(upgene_in_FK$Gene.ID,'up_genes_in_FK.csv',
+            quote = F,sep = '\t',col.names = F,row.names = F)
