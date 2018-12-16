@@ -13,7 +13,7 @@ colnames(data_heatmap)<-c('FK2','FK4','FK5',paste0(rep('HN',5),1:5))
 
 library(pheatmap)
 library(RColorBrewer)
-pdf("heatmap.pdf",width = 7,height = 10,onefile = T)
+pdf("heatmap_UP.pdf",width = 7,height = 10,onefile = T)
 par(mar=c(5.1, 4.1, 4.1, 2.1))
 map <-pheatmap(data_heatmap,col = colorRampPalette(c("blue","white","red"))(100),
                scale = "row",
