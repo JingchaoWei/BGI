@@ -1,3 +1,3 @@
-upgene_in_FK <- read.csv('up_genes_in_FK.csv')
-write.table(upgene_in_FK$Gene.ID,'up_genes_in_FK.csv',
+data <- read.csv('up.csv')
+write.table(data$ï..Gene.ID,'PPI_input_down_HN.csv',
             quote = F,sep = '\t',col.names = F,row.names = F)
