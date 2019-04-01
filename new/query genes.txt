@@ -1,2 +1,0 @@
-IFNG (IFN-gamma)
-PRF1 (perforin)
