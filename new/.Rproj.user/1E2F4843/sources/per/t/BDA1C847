@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544934708277.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1526080503",
+    "id" : "BDA1C847",
+    "lastKnownWriteTime" : 1544934878,
+    "last_content_update" : 1544934878564,
+    "path" : "H:/Github/BGI/heatmap_GSEA.R",
+    "project_path" : "heatmap_GSEA.R",
+    "properties" : {
+        "cursorPosition" : "12,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

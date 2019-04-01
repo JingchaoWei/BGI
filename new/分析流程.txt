@@ -1,0 +1,5 @@
+﻿1.挑选差异基因
+FPKM>1,删除BGI_novel,logFC>2,Qvalue<0.01
+2.做kegg通路分析
+3.挑选kegg通路，做ppi
+4.挑选节点，做GO分析
