@@ -1,7 +1,11 @@
 #"2018-12-06 21:20:56 PST"
 rm(list=ls())
 data <- read.csv('all.csv')
-data <- data[,2:9]
+data <- data[,2:11]#提取表达矩阵
+colnames(data)
+colnames(data) <- c("FK2","FK4","FK5","FK6","FK7",
+                    "HN1","HN2","HN3","HN4","HN5")
+
 
 library(Hmisc)
 library(pheatmap)
@@ -34,7 +38,7 @@ dev.off()
 
 
 #还可以通过层次聚类来查看样本之间的关系：
-names_cluster <- data.frame(sample=colnames(data),group=c(rep('FK',3),rep('HN',5)))
+names_cluster <- data.frame(sample=colnames(data),group=c(rep('FK',5),rep('HN',5)))
 #如果group是factor,要转化成character
 names_cluster$group <- as.character(names_cluster$group)
 #自己构建新名字
