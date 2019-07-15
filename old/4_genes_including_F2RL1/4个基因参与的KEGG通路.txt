@@ -1,0 +1,17 @@
+HIF1A
+Choline metabolism in cancer
+Thyroid hormone signaling pathway
+
+PIK3CB
+Leukocyte transendothelial migration
+AMPK signaling pathway
+Insulin signaling pathway
+Insulin resistance
+Choline metabolism in cancer
+Thyroid hormone signaling pathway
+
+F2RL1
+Thyroid hormone signaling pathway
+
+GBP4
+NOD-like receptor signaling pathway
