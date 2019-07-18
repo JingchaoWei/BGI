@@ -1,0 +1,21 @@
+﻿GO Term ID,GO Term,Level 1,Level 2,,
+GO:0071310,cellular response to organic substance,biological_process,cellular process,PIK3CB,
+GO:0010033,response to organic substance,biological_process,response to stimulus,PIK3CB,
+GO:0042327,positive regulation of phosphorylation,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0070887,cellular response to chemical stimulus,biological_process,cellular process,PIK3CB,
+GO:0010562,positive regulation of phosphorus metabolic process,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0045937,positive regulation of phosphate metabolic process,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0042325,regulation of phosphorylation,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0006935,chemotaxis,biological_process,response to stimulus,PIK3CB,
+GO:0042330,taxis,biological_process,response to stimulus,PIK3CB,
+GO:0042221,response to chemical,biological_process,response to stimulus,PIK3CB,
+GO:0060326,cell chemotaxis,biological_process,cellular process,PIK3CB,
+GO:0001934,positive regulation of protein phosphorylation,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0019220,regulation of phosphate metabolic process,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0030155,regulation of cell adhesion,biological_process,biological regulation,PIK3CB,
+GO:0051174,regulation of phosphorus metabolic process,biological_process,biological regulation,PIK3CB,F2RL1
+GO:0040011,locomotion,biological_process,locomotion,PIK3CB,F2RL1
+GO:0050900,leukocyte migration,biological_process,cellular process,PIK3CB,F2RL1
+GO:1901700,response to oxygen-containing compound,biological_process,response to stimulus,,
+GO:0033674,positive regulation of kinase activity,biological_process,biological regulation,PIK3CB,
+GO:0006928,movement of cell or subcellular component,biological_process,cellular process,HIF1A,
