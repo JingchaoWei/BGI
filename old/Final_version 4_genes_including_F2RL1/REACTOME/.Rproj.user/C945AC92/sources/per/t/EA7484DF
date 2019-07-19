@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563456963630.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2559191636",
+    "id" : "EA7484DF",
+    "lastKnownWriteTime" : 1563499991,
+    "last_content_update" : 1563499991430,
+    "path" : "C:/Users/weiji/Desktop/REACTOME/tmp.R",
+    "project_path" : "tmp.R",
+    "properties" : {
+        "cursorPosition" : "55,0",
+        "scrollLine" : "34",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

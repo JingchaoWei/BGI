@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563453003835.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1926119530",
+    "id" : "510C3D08",
+    "lastKnownWriteTime" : 1563500101,
+    "last_content_update" : 1563500101436,
+    "path" : "C:/Users/weiji/Desktop/REACTOME/CODE.R",
+    "project_path" : "CODE.R",
+    "properties" : {
+        "cursorPosition" : "14,64",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
