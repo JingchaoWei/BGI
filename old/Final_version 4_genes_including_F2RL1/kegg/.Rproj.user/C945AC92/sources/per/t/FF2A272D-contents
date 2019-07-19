@@ -22,7 +22,7 @@ dev.off()
 rm(list=ls()) 
 library(Cairo)
 library(ggplot2) 
-GO <- read.csv('kegg_HN_up.csv')
+GO <- read.csv('kegg_HN_down.csv')
 colnames(GO)
 #png_path="./bubble_plot.png" 
 #CairoPNG(png_path, width = 10, height = 6, units='in', dpi=600) 
@@ -31,7 +31,7 @@ ggplot(GO,aes(x=Rich.Ratio,y=Pathway.Name))+
   geom_point(aes(size=Term.Candidate.Gene.Num,color=-1*log10(Q.value)))+ 
   scale_colour_gradient(low="blue",high="red")+ 
   labs(color=expression(-log[10](Q.value)), size="Gene number", 
-       x="Rich Ratio", y="Pathway name", title="Term enrichment (KEGG_up_HN)")+ 
+       x="Rich Ratio", y="Pathway name", title="Term enrichment (KEGG_down_Vitiligo)")+ 
   theme_bw()+ 
   theme( axis.text.y = element_text(size = rel(1.3)), 
          axis.title.x = element_text(size=rel(1.3)), axis.title.y = element_blank()) 
