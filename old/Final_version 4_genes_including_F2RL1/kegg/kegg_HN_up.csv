@@ -1,0 +1,21 @@
+﻿Pathway ID,Pathway Name,Level 1,Level 2,Term Candidate Gene Num,Total Candidate Gene Num,Term Gene Num,Total Gene Num,Rich Ratio,P value,Q value
+ko04960,Aldosterone-regulated sodium reabsorption,Organismal Systems,Excretory system,7,224,49,23958,0.142857143,3.50E-07,9.62E-05
+ko04530,Tight junction,Cellular Processes,Cellular community - eukaryotes,15,224,389,23958,0.038560411,4.31E-06,0.00059265
+ko00100,Steroid biosynthesis,Metabolism,Lipid metabolism,5,224,35,23958,0.142857143,1.76E-05,0.001617617
+ko04670,Leukocyte transendothelial migration,Organismal Systems,Immune system,10,224,210,23958,0.047619048,3.04E-05,0.00208721
+ko04514,Cell adhesion molecules (CAMs),Environmental Information Processing,Signaling molecules and interaction,12,224,314,23958,0.038216561,4.34E-05,0.002386621
+ko04918,Thyroid hormone synthesis,Organismal Systems,Endocrine system,7,224,106,23958,0.066037736,6.33E-05,0.002899347
+ko04216,Ferroptosis,Cellular Processes,Cell growth and death,6,224,85,23958,0.070588235,0.000147664,0.005801066
+ko04152,AMPK signaling pathway,Environmental Information Processing,Signal transduction,8,224,174,23958,0.045977011,0.000241621,0.008305722
+ko00512,Mucin type O-glycan biosynthesis,Metabolism,Glycan biosynthesis and metabolism,4,224,38,23958,0.105263158,0.000427918,0.01023649
+ko04910,Insulin signaling pathway,Organismal Systems,Endocrine system,10,224,291,23958,0.034364261,0.000438133,0.01023649
+ko04931,Insulin resistance,Human Diseases,Endocrine and metabolic diseases,7,224,142,23958,0.049295775,0.000388745,0.01023649
+ko04972,Pancreatic secretion,Organismal Systems,Digestive system,7,224,147,23958,0.047619048,0.000478723,0.01023649
+ko05231,Choline metabolism in cancer,Human Diseases,Cancers: Overview,8,224,193,23958,0.041450777,0.000483907,0.01023649
+ko04964,Proximal tubule bicarbonate reclamation,Organismal Systems,Excretory system,4,224,41,23958,0.097560976,0.00057436,0.01128207
+ko04970,Salivary secretion,Organismal Systems,Digestive system,8,224,211,23958,0.037914692,0.000867206,0.01420292
+ko05230,Central carbon metabolism in cancer,Human Diseases,Cancers: Overview,5,224,79,23958,0.063291139,0.000877999,0.01420292
+ko04919,Thyroid hormone signaling pathway,Organismal Systems,Endocrine system,8,224,218,23958,0.036697248,0.001069909,0.01548552
+ko04923,Regulation of lipolysis in adipocytes,Organismal Systems,Endocrine system,5,224,82,23958,0.06097561,0.001039204,0.01548552
+ko05160,Hepatitis C,Human Diseases,Infectious diseases: Viral,7,224,172,23958,0.040697674,0.001207297,0.01660033
+ko00480,Glutathione metabolism,Metabolism,Metabolism of other amino acids,5,224,86,23958,0.058139535,0.001287066,0.01685444

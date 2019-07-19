@@ -7,7 +7,7 @@ colnames(GO)
 png_path="./GO.png" 
 CairoPNG(png_path, width = 18, height = 12, units='in', dpi=600) 
 ggplot(data=GO) + geom_bar(aes(x=reorder(GO.Term,Term.Candidate.Gene.Num),y=Term.Candidate.Gene.Num, fill=-log10(Q.value)), 
-                                 stat='identity') + 
+                           stat='identity') + 
   coord_flip() + scale_fill_gradient(expression(-log["10"](Q.value)),low="blue", high = "red") + 
   xlab("") + ylab("Gene count") + scale_y_continuous(expand=c(0, 0)) + 
   theme(axis.text.x=element_text(color="black",size=rel(1.5)), 
@@ -22,16 +22,16 @@ dev.off()
 rm(list=ls()) 
 library(Cairo)
 library(ggplot2) 
-GO <- read.csv('GO_enrichment.csv')
+GO <- read.csv('kegg_HN_up.csv')
 colnames(GO)
 #png_path="./bubble_plot.png" 
 #CairoPNG(png_path, width = 10, height = 6, units='in', dpi=600) 
-pdf(file = 'bubble_plot.pdf',width = 10,height = 5)
-ggplot(GO,aes(x=Rich.Ratio,y=GO.Term))+
+pdf(file = 'bubble_plot.pdf',width = 8,height = 5)
+ggplot(GO,aes(x=Rich.Ratio,y=Pathway.Name))+
   geom_point(aes(size=Term.Candidate.Gene.Num,color=-1*log10(Q.value)))+ 
   scale_colour_gradient(low="blue",high="red")+ 
   labs(color=expression(-log[10](Q.value)), size="Gene number", 
-       x="Rich Ratio", y="Pathway name", title="Term enrichment (GO)")+ 
+       x="Rich Ratio", y="Pathway name", title="Term enrichment (KEGG_up_HN)")+ 
   theme_bw()+ 
   theme( axis.text.y = element_text(size = rel(1.3)), 
          axis.title.x = element_text(size=rel(1.3)), axis.title.y = element_blank()) 
@@ -78,7 +78,7 @@ map <-pheatmap(data,col = c("white","#FF9999"),
                show_colnames=T,show_rownames=T,
                fontsize_col = 8, 
                fontsize_row = 8,fontsize = 8,
-               main = 'Mapping Genes to Pathways (GO)')
+               main = 'Mapping Genes to Pathways')
 dev.off()
 
 

@@ -1,0 +1,21 @@
+﻿Pathway ID,Pathway Name,Level 1,Level 2,Term Candidate Gene Num,Total Candidate Gene Num,Term Gene Num,Total Gene Num,Rich Ratio,P value,Q value
+ko04062,Chemokine signaling pathway,Organismal Systems,Immune system,33,496,309,23958,0.106796117,1.40E-14,4.03E-12
+ko05144,Malaria,Human Diseases,Infectious diseases: Parasitic,18,496,80,23958,0.225,3.91E-14,5.63E-12
+ko04060,Cytokine-cytokine receptor interaction,Environmental Information Processing,Signaling molecules and interaction,32,496,312,23958,0.102564103,1.10E-13,1.05E-11
+ko04670,Leukocyte transendothelial migration,Organismal Systems,Immune system,22,496,210,23958,0.104761905,5.41E-10,3.90E-08
+ko04933,AGE-RAGE signaling pathway in diabetic complications,Human Diseases,Endocrine and metabolic diseases,29,496,364,23958,0.07967033,7.23E-10,4.17E-08
+ko04015,Rap1 signaling pathway,Environmental Information Processing,Signal transduction,28,496,354,23958,0.079096045,1.68E-09,8.06E-08
+ko04360,Axon guidance,Organismal Systems,Development,24,496,298,23958,0.080536913,1.75E-08,7.21E-07
+ko04974,Protein digestion and absorption,Organismal Systems,Digestive system,35,496,632,23958,0.055379747,1.57E-07,5.66E-06
+ko04926,Relaxin signaling pathway,Organismal Systems,Endocrine system,27,496,433,23958,0.062355658,4.40E-07,1.41E-05
+ko04610,Complement and coagulation cascades,Organismal Systems,Immune system,21,496,283,23958,0.074204947,5.36E-07,1.54E-05
+ko04014,Ras signaling pathway,Environmental Information Processing,Signal transduction,25,496,404,23958,0.061881188,1.35E-06,3.54E-05
+ko04371,Apelin signaling pathway,Environmental Information Processing,Signal transduction,16,496,189,23958,0.084656085,2.21E-06,5.31E-05
+ko04514,Cell adhesion molecules (CAMs),Environmental Information Processing,Signaling molecules and interaction,21,496,314,23958,0.066878981,2.84E-06,6.30E-05
+ko05206,MicroRNAs in cancer,Human Diseases,Cancers: Overview,18,496,259,23958,0.069498069,8.57E-06,0.00017638
+ko04218,Cellular senescence,Cellular Processes,Cell growth and death,22,496,368,23958,0.059782609,1.00E-05,0.000192128
+ko04010,MAPK signaling pathway,Environmental Information Processing,Signal transduction,32,496,678,23958,0.04719764,1.51E-05,0.0002416
+ko04621,NOD-like receptor signaling pathway,Organismal Systems,Immune system,20,496,322,23958,0.062111801,1.45E-05,0.0002416
+ko04810,Regulation of actin cytoskeleton,Cellular Processes,Cell motility,24,496,433,23958,0.055427252,1.41E-05,0.0002416
+ko04611,Platelet activation,Organismal Systems,Immune system,22,496,387,23958,0.056847545,2.18E-05,0.000330092
+ko05167,Kaposi's sarcoma-associated herpesvirus infection,Human Diseases,Infectious diseases: Viral,19,496,310,23958,0.061290323,2.84E-05,0.000409445
