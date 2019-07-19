@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563500726839.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2398324500",
+    "id" : "DD1AF040",
+    "lastKnownWriteTime" : 1563504474,
+    "last_content_update" : 1563504474228,
+    "path" : "C:/Users/weiji/Desktop/GO/GO.R",
+    "project_path" : "GO.R",
+    "properties" : {
+        "cursorPosition" : "80,9",
+        "scrollLine" : "68",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

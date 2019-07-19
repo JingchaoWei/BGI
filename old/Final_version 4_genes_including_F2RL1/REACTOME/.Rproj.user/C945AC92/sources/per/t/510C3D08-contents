@@ -26,13 +26,14 @@ library(ggplot2)
 REACTOME <- read.csv('reactome_file.csv')
 REACTOME <- REACTOME[1:20,]
 REACTOME$rich_factor <- as.numeric(REACTOME$intersection_size/REACTOME$term_size)
-png_path="./bubble_plot.png" 
-CairoPNG(png_path, width = 10, height = 6, units='in', dpi=600) 
+#png_path="./bubble_plot.png" 
+#CairoPNG(png_path, width = 10, height = 6, units='in', dpi=600) 
+pdf(file = 'bubble_plot.pdf',width = 10,height = 5)
 ggplot(REACTOME,aes(x=rich_factor,y=term_name))+
   geom_point(aes(size=intersection_size,color=-1*log10(adjusted_p_value)))+ 
   scale_colour_gradient(low="blue",high="red")+ 
   labs(color=expression(-log[10](P.value)), size="Gene number", 
-       x="Rich Ratio", y="Pathway name", title="Term enrichment")+ 
+       x="Rich Ratio", y="Pathway name", title="Term enrichment (Reactome)")+ 
   theme_bw()+ 
   theme( axis.text.y = element_text(size = rel(1.3)), 
          axis.title.x = element_text(size=rel(1.3)), axis.title.y = element_blank()) 
@@ -73,12 +74,11 @@ for (j in 1:20) {
   }
   j=j+1
 }
-View(data)
 data <- t(data)
 #可视化
 library(pheatmap)
 library(RColorBrewer)
-pdf("heatmap.pdf",width = 20,height = 5,onefile = T)
+pdf("heatmap.pdf",width = 10,height = 5,onefile = T)
 par(mar=c(5.1, 4.1, 4.1, 2.1))
 map <-pheatmap(data,col = c("white","#FF9999"),
                cluster_rows = F,cluster_cols=F,legend = F,
@@ -86,7 +86,7 @@ map <-pheatmap(data,col = c("white","#FF9999"),
                show_colnames=T,show_rownames=T,
                fontsize_col = 8, 
                fontsize_row = 8,fontsize = 8,
-               main = 'Mapping Genes to Pathways')
+               main = 'Mapping Genes to Pathways (Reactome)')
 dev.off()
 
 

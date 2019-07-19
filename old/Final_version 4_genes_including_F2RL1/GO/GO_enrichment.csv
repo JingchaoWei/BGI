@@ -1,0 +1,21 @@
+﻿GO Term ID,GO Term,Level 1,Level 2,Term Candidate Gene Num,Total Candidate Gene Num,Term Gene Num,Total Gene Num,Rich Ratio,P value,Q value
+GO:0071310,cellular response to organic substance,biological_process,cellular process,27,37,2058,17100,0.013119534,1.32E-17,3.28E-14
+GO:0010033,response to organic substance,biological_process,response to stimulus,29,37,2740,17100,0.010583942,7.79E-17,6.47E-14
+GO:0042327,positive regulation of phosphorylation,biological_process,biological regulation,21,37,1002,17100,0.020958084,5.72E-17,6.47E-14
+GO:0070887,cellular response to chemical stimulus,biological_process,cellular process,28,37,2550,17100,0.010980392,1.99E-16,1.24E-13
+GO:0010562,positive regulation of phosphorus metabolic process,biological_process,biological regulation,21,37,1107,17100,0.01897019,4.28E-16,1.78E-13
+GO:0045937,positive regulation of phosphate metabolic process,biological_process,biological regulation,21,37,1107,17100,0.01897019,4.28E-16,1.78E-13
+GO:0042325,regulation of phosphorylation,biological_process,biological regulation,23,37,1490,17100,0.015436242,6.62E-16,2.35E-13
+GO:0006935,chemotaxis,biological_process,response to stimulus,16,37,500,17100,0.032,1.65E-15,4.56E-13
+GO:0042330,taxis,biological_process,response to stimulus,16,37,500,17100,0.032,1.65E-15,4.56E-13
+GO:0042221,response to chemical,biological_process,response to stimulus,31,37,3813,17100,0.008130081,3.11E-15,7.73E-13
+GO:0060326,cell chemotaxis,biological_process,cellular process,12,37,190,17100,0.063157895,3.63E-15,8.21E-13
+GO:0001934,positive regulation of protein phosphorylation,biological_process,biological regulation,19,37,933,17100,0.020364416,5.82E-15,1.21E-12
+GO:0019220,regulation of phosphate metabolic process,biological_process,biological regulation,23,37,1715,17100,0.013411079,1.42E-14,2.71E-12
+GO:0030155,regulation of cell adhesion,biological_process,biological regulation,17,37,700,17100,0.024285714,1.55E-14,2.73E-12
+GO:0051174,regulation of phosphorus metabolic process,biological_process,biological regulation,23,37,1727,17100,0.013317892,1.65E-14,2.73E-12
+GO:0040011,locomotion,biological_process,locomotion,20,37,1175,17100,0.017021277,2.43E-14,3.78E-12
+GO:0050900,leukocyte migration,biological_process,cellular process,13,37,302,17100,0.043046358,3.06E-14,4.49E-12
+GO:1901700,response to oxygen-containing compound,biological_process,response to stimulus,21,37,1397,17100,0.015032212,4.47E-14,6.18E-12
+GO:0033674,positive regulation of kinase activity,biological_process,biological regulation,15,37,522,17100,0.028735632,7.70E-14,1.01E-11
+GO:0006928,movement of cell or subcellular component,biological_process,cellular process,20,37,1415,17100,0.014134276,8.05E-13,8.35E-11
